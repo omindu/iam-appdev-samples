@@ -16,6 +16,8 @@ WORKDIR /app
 
 COPY . /app
 
+RUN chown -R ${USER}:${USER_GROUP} /app
+
 USER 10001
 
 VOLUME /tmp
