@@ -1,6 +1,6 @@
 # Docker file for sprint boot application with java 17
 
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:17-jre-alpine
 
 ARG USER=wso2
 ARG USER_ID=10001
