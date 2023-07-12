@@ -23,5 +23,5 @@ VOLUME /tmp
 EXPOSE 8080
 
 
-ENTRYPOINT ["java","-jar","iam-app-dev-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java","-jar","target/iam-app-dev-0.0.1-SNAPSHOT.jar"]
 
