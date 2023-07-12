@@ -9,6 +9,10 @@ ARG USER_ID=10001
 ARG USER_GROUP=wso2
 ARG USER_GROUP_ID=10001
 
+# Add user
+RUN groupadd -g ${USER_GROUP_ID} ${USER_GROUP} && \
+    useradd -u ${USER_ID} -g ${USER_GROUP_ID} -m -s /bin/bash ${USER}
+
 USER 10001
 
 VOLUME /tmp
