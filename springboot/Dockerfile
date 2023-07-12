@@ -13,13 +13,14 @@ RUN groupadd -g ${USER_GROUP_ID} ${USER_GROUP} && \
 
 WORKDIR /app
 
+COPY . /app
+
 USER 10001
 
 VOLUME /tmp
 
 EXPOSE 8080
 
-ADD iam-app-dev-0.0.1-SNAPSHOT.jar app.jar
 
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","iam-app-dev-0.0.1-SNAPSHOT.jar"]
 
