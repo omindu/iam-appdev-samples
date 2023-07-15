@@ -4,12 +4,49 @@ info:
   version: 1.0.0
 servers:
   - url: http://localhost:8080
+
+components:
+  securitySchemes:
+    oauth2:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: http://localhost:8080/oauth2/authorize
+          tokenUrl: http://localhost:8080/oauth2/token
+          scopes:
+            role1: Scope related to role1
+            role2: Scope related to role2
 paths:
-  /hello:
+  /secured-1:
     get:
       tags:
         - default
-      summary: get
+      summary: API for role 1
+      security:
+          - oauth2:
+              - role1
+      parameters:
+        - name: name
+          in: query
+          required: false
+          schema:
+            type: string
+      responses:
+        default:
+          description: Default response
+        '200':
+          description: Successful response
+          content:
+            application/json: {}
+
+  /secured-2:
+    get:
+      tags:
+        - default
+      summary: API for role 2
+      security:
+          - oauth2:
+              - role2
       parameters:
         - name: name
           in: query

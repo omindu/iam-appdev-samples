@@ -15,9 +15,14 @@ public class IamAppDevApplication {
 		SpringApplication.run(IamAppDevApplication.class, args);
 	}
 
-	@GetMapping("/hello")
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name) {
-		return String.format("Hello %s!", name);
+	@GetMapping("/secured-1")
+	public String sec1(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return String.format("Hello %s! from Role 1\r\n", name);
+	}
+
+	@GetMapping("/secured-2")
+	public String sec2(@RequestParam(value = "name", defaultValue = "World") String name) {
+		return String.format("Hello %s! from Role 2\rn\n", name);
 	}
 
 }
